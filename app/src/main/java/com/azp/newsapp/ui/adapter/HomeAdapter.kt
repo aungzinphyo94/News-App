@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.azp.newsapp.R
 import com.azp.newsapp.model.Article
+import com.azp.newsapp.toSimpleString
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_home.view.*
 
@@ -30,7 +31,7 @@ class HomeAdapter(var articleList: List<Article> = ArrayList<Article>()) :
         fun bind(article: Article) {
             this.article = article
             itemView.articleTitle.text = article.title
-            itemView.articleDate.text = article.publishedAt
+            itemView.articleDate.text = toSimpleString(article.publishedAt)
             itemView.articleDesc.text = article.description
             Picasso.get()
                 .load(article.urlToImage)
